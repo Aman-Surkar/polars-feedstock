@@ -1,0 +1,9 @@
+recipes:
+  - name : polars
+    path : polars/recipe
+
+  - name : polars-lts-cpu
+    path : polars-lts-cpu/recipe
+
+  - name : polars-u64-idx
+    path : polars-u64-idx/recipe
