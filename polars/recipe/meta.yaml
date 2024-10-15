@@ -4,6 +4,7 @@
 # Note: This recipe is specifically designed to work well with the autotick bot.
 # Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 # This recipe is taken from conda-forge.
+
 package:
   name: {{ polars_variant }}
   version: {{ version }}
@@ -69,12 +70,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - borchero
-    - Maxyme
-    - timkpaine
-    - ritchie46
-    - sugatoray
-    - xhochy
-    - dhirschfeld
-    - pavelzw
-    - '0xbe7a'
+    - open-ce/open-ce-dev-team

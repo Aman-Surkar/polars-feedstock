@@ -34,9 +34,7 @@ if [[ ${arch} == "x86_64" ]]; then
   export RUSTFLAGS="-C target-feature=$features $cfg"
 fi
 
-if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
-    sed -i.bak "s/^_LTS_CPU = False$/_LTS_CPU = True/g" $cpu_check_module
-fi
+sed -i.bak "s/^_LTS_CPU = False$/_LTS_CPU = True/g" $cpu_check_module
 
 sed -i.bak "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
 sed -i.bak "s/^_POLARS_FEATURE_FLAGS = \"\"$/_POLARS_FEATURE_FLAGS = \"$features\"/g" $cpu_check_module
