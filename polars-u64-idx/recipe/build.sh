@@ -1,4 +1,4 @@
-# This recipe is taken from conda-forge.
+# This recipe has been adopted from https://github.com/conda-forge/polars-feedstock
 
 #!/usr/bin/env bash
 
@@ -23,17 +23,8 @@ cpu_check_module="py-polars/polars/_cpu_check.py"
 features=""
 
 if [[ ${arch} == "x86_64" ]]; then
-  cfg=""
-  if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt
-    cfg="--cfg allocator=\"default\""
-  elif [[ -n "${OSX_ARCH}" ]]; then
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma,+pclmulqdq
-  else
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq
-  fi
-
-  export RUSTFLAGS="-C target-feature=$features $cfg"
+  features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq
+  export RUSTFLAGS="-C target-feature=$features"
 fi
 
 sed -i.bak "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
