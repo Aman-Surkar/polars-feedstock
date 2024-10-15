@@ -1,3 +1,5 @@
+# This recipe is taken from conda-forge.
+
 #!/usr/bin/env bash
 
 set -ex
